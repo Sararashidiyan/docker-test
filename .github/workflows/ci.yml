@@ -5,16 +5,22 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Build Docke Image
-      run: docker build -t simple-website .
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
 
-    - name: Run Container
-      run: docker run -d -p 8080:80 simple-website
+    - name: Upload HTML to GitHub Pages
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: .
+
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v2
+
 
