@@ -11,6 +11,7 @@ jobs:
       contents: read
       pages: write
       id-token: write
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -21,7 +22,7 @@ jobs:
     - name: Upload HTML to GitHub Pages
       uses: actions/upload-pages-artifact@v2
       with:
-        path: .
+        path: .  # Make sure this points to your built site folder
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v2
