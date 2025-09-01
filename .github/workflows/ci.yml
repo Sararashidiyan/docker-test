@@ -24,7 +24,6 @@ jobs:
       with:
         path: .  # Make sure this points to your built site folder
 
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v2
+
 
 
